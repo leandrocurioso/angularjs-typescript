@@ -17,7 +17,9 @@
       ],
       "typeRoots": [
         "./node_modules/@types",
-        "./node_modules/@types/angular"
+        "./node_modules/@types/angular",
+        "./node_modules/@types/angular-route",
+        "./node_modules/@types/angular-cookies"
       ]
     },
     "exclude": [

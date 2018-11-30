@@ -30,6 +30,8 @@
   "homepage": "https://github.com/leandrocurioso/angularjs-typescript#readme",
   "devDependencies": {
     "@types/angular": "1.6.51",
+    "@types/angular-cookies": "1.4.5",
+    "@types/angular-route": "1.7.0",
     "brfs": "2.0.1",
     "browserify": "16.2.3",
     "gulp": "3.9.1",
