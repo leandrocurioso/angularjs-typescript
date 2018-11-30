@@ -1,0 +1,54 @@
+{
+  "name": "angularjs-typescript",
+  "version": "1.0.0",
+  "description": "An AngularJS structure to use with Typescript and bundled with browserify.",
+  "scripts": {
+    "gulp:minify-css": "./node_modules/.bin/gulp minify-css",
+    "gulp:minify-js": "./node_modules/.bin/gulp minify-js",
+    "gulp:watch-minify-js": "./node_modules/.bin/gulp watch-minify-js",
+    "gulp:minify-all": "./node_modules/.bin/gulp minify-all",
+    "browserify:watch": "watchify -t brfs demo.app.js -d -o dist/module/app/index-bundle.app.js -v",
+    "browserify:build": "browserify -t brfs demo.app.js -d -o dist/module/app/index-bundle.app.js",
+    "build": "npm run typescript:build && npm run browserify:build && npm run gulp:minify-all",
+    "typescript:watch": "tsc -pretty -w -p .",
+    "typescript:build": "tsc -pretty -p ."
+  },
+  "author": "leandrocurioso",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandrocurioso/angularjs-typescript#.git"
+  },
+  "keywords": [
+    "angularjs",
+    "typescript",
+    "browserify"
+  ],
+  "bugs": {
+    "url": "https://github.com/leandrocurioso/angularjs-typescript#/issues"
+  },
+  "homepage": "https://github.com/leandrocurioso/angularjs-typescript#readme",
+  "devDependencies": {
+    "@types/angular": "1.6.51",
+    "brfs": "2.0.1",
+    "browserify": "16.2.3",
+    "gulp": "3.9.1",
+    "gulp-concat": "2.6.1",
+    "gulp-minify-css": "1.2.4",
+    "gulp-order": "1.2.0",
+    "gulp-rev": "9.0.0",
+    "gulp-sourcemaps": "2.6.4",
+    "gulp-uglify": "3.0.1",
+    "gulp-watch": "5.0.1",
+    "source-map-support": "0.5.9",
+    "typescript": "3.1.6",
+    "watchify": "3.11.0"
+  },
+  "dependencies": {
+    "angular": "1.7.5",
+    "angular-cookies": "1.7.5",
+    "angular-route": "1.7.5",
+    "bootstrap": "3.3.7",
+    "jquery": "3.2.1"
+  }
+}

@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "module": "commonjs",
+      "sourceMap": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "isolatedModules": false,
+      "outDir": "dist",
+      "rootDir": "src/",
+      "lib": [
+        "es6",
+        "dom"
+      ],
+      "types": [
+        "angular"
+      ],
+      "typeRoots": [
+        "./node_modules/@types",
+        "./node_modules/@types/angular"
+      ]
+    },
+    "exclude": [
+      "node_modules"
+    ]
+  }
