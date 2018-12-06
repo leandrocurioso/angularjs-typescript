@@ -11,9 +11,32 @@ const watch = require('gulp-watch');
 const BASE_URL = path.join(__dirname,)
 const BASE_URL_PUBLIC = path.join(BASE_URL, "public");
 
+gulp.task('minify-js', () => {
+    return gulp.src([
+        path.join(BASE_URL, 'dist', 'module', 'app', 'index-bundle.app.js')
+    ])
+    .pipe(uglify())
+    .pipe(concat({  path: 'bundle.lib.min.js', cwd: '' }))
+    // .pipe(rev())
+    .pipe(gulp.dest(BASE_URL_PUBLIC));
+});
+
+gulp.task('watch-minify-js', () => {
+    return watch('./dist/module/app/index-bundle.app.js', { ignoreInitial: false, verbose: true }, () => {
+        gulp.src([
+            path.join(BASE_URL, 'dist', 'module', 'app', 'index-bundle.app.js')
+        ])
+        .pipe(sourcemaps.init())
+        .pipe(concat({ path: 'bundle.lib.min.js', cwd: '' }))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(BASE_URL_PUBLIC));
+    });
+});
+
 /*
 gulp.task('minify-css', () => {
     return gulp.src([
+
     ])
     .pipe(sourcemaps.init())
     .pipe(minifyCss({
@@ -29,40 +52,7 @@ gulp.task('minify-css', () => {
 });
 */
 
-gulp.task('minify-js', () => {
-    return gulp.src([
-        path.join(BASE_URL, 'dist', 'module', 'app', 'index-bundle.app.js')
-    ])
-    .pipe(sourcemaps.init())
-    .pipe(uglify())
-    .pipe(concat({
-        path: 'bundle.lib.min.js',
-        cwd: ''
-    }))
-    //.pipe(rev())
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(BASE_URL_PUBLIC));
-});
-
-gulp.task('watch-minify-js', () => {
-    return watch('./dist/module/app/index-bundle.app.js', { ignoreInitial: false, verbose: true }, () => {
-        gulp.src([
-            path.join(BASE_URL, 'dist', 'module', 'app', 'index-bundle.app.js')
-        ])
-        .pipe(sourcemaps.init())
-        .pipe(uglify())
-        .pipe(concat({
-            path: 'bundle.lib.min.js',
-            cwd: ''
-        }))
-        //.pipe(rev())
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(BASE_URL_PUBLIC));
-    });
-});
-
 gulp.task('minify-all', [
   'minify-js'
   // 'minify-css'
 ]);
-

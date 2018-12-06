@@ -11,7 +11,7 @@ abstract class Service implements IService {
     }
 
     public load(): void {
-        throw new Error(`Load method for [${this.serviceName}] service is not implemented!`);
+        throw new Error(`load() method for [${this.serviceName}] service is not overridden!`);
     }
 
 }

@@ -34,7 +34,7 @@ abstract class Module implements IModule{
     }
 
     public load(): void {
-        throw new Error(`Load method for [${this.moduleName}] module is not implemented!`);
+        throw new Error(`load() method for [${this.moduleName}] module is not overridden!`);
     }
 
 }

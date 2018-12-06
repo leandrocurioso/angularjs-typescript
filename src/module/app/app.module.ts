@@ -4,12 +4,15 @@ import DemoController from "../../module/app/controller/demo.controller";
 
 class AppModule extends Module {
 
-    private static readonly dependencies: string[] = [
-      'ngRoute', 'ngCookies'
-    ];
-
     constructor(angularJs) {
-        super("AppModule", AppModule.dependencies, angularJs);
+        super
+        (
+            "AppModule", 
+            [
+                'ngRoute', 'ngCookies'
+            ], 
+            angularJs
+        );
     }
 
     public load(): void {
@@ -33,7 +36,6 @@ class AppModule extends Module {
                 $cookiesProvider
             ) => 
             {
-
             }
         ];
     }
@@ -49,7 +51,6 @@ class AppModule extends Module {
                 $window
             ) => 
             {
-
             }
         ];
     }

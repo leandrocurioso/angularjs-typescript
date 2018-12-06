@@ -2,11 +2,16 @@ import Controller from "../../../common/controller";
 
 class DemoControler extends Controller {
 
-    private $rootScope;
-    private $scope;
+    protected property = {
+        message: "Hello World from AngularJS!"
+    };
 
     constructor(appModule: angular.IModule) {
         super(appModule, "DemoController");
+    }
+
+    public async alert(): Promise<void> {
+        alert("Working good!");
     }
 
     public load(): void {
@@ -19,10 +24,7 @@ class DemoControler extends Controller {
                 $scope
             ) =>
             {
-                this.$rootScope = $rootScope;
-                this.$scope = $scope;
-                this.$scope.message = "Hello World from AngularJS!";
-                return this;
+                super.scopeIt($rootScope, $scope);
             }
         ]);
     }

@@ -6,7 +6,8 @@
     </head>
     <body ng-app="AppModule">
         <div ng-controller="DemoController">
-            <h1>{{ message }}</h1>
+            <h1>{{ property.message }}</h1>
+            <button ng-click="method.alert()" type="button">Test it!</button>
         </div>
     </body>
     <script src="./bundle.lib.min.js"></script>
